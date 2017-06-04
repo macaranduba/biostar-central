@@ -15,6 +15,12 @@ Alexandr Levchuck, https://github.com/alevchuk
 Eric Normandeau
 Egon Willingham
 
+
+Studing this application
+------------
+Renato, https://github.com/macaranduba
+
+
 See: https://github.com/ialbert/biostar-central/graphs/contributors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
