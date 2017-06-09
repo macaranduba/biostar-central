@@ -247,6 +247,14 @@ from allauth.account.views import SignupForm, SignupView
 from biostar.apps.util.captcha.fields import MathCaptchaField
 from captcha.fields import ReCaptchaField
 
+def ldap_login(request):
+    form = LoginForm
+    #printf("this requires KEK");
+    if request.method == 'POST':
+        print "kek"
+        pass
+    return render(request, "account/login.html", {'form': form})
+    
 
 class CaptchaForm(SignupForm):
     captcha = ReCaptchaField()
@@ -262,3 +270,12 @@ class CaptchaView(SignupView):
             return CaptchaForm
         else:
             return SignupForm
+
+class LoginForm(forms.Form):
+
+    username = forms.CharField(label=("LDAP User"))
+    password = forms.CharField(label=("Password"))
+    remember = forms.BooleanField(label=("Remember Me"),
+                                  required=False)
+
+    user = None

@@ -8,7 +8,7 @@ admin.autodiscover()
 from django.views.generic import TemplateView
 from biostar.server import views, ajax, search, moderate, api, orcid
 from biostar.apps.posts.views import NewAnswer, NewPost, EditPost, external_post_handler
-from biostar.apps.users.views import external_logout, external_login, CaptchaView, DigestManager, unsubscribe
+from biostar.apps.users.views import ldap_login, external_logout, external_login, CaptchaView, DigestManager, unsubscribe
 from biostar.apps.planet.views import BlogPostList
 
 urlpatterns = patterns('',
@@ -71,6 +71,7 @@ urlpatterns = patterns('',
     url(r'^site/login/$', external_login, name="login"),
     url(r'^site/logout/$', external_logout, name="logout"),
     url(r'^accounts/signup/$', CaptchaView.as_view(), name="signup"),
+    url(r'^accounts/login/$', ldap_login, name="ldap_login"),
 
     # Email handlers
     url(r'^local/email/', views.email_handler, name="email-handler"),

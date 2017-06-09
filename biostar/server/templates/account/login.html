@@ -55,7 +55,7 @@
                 </div>
                 <div class="panel-body">
 
-                    <form class="login" method="POST" action="{% url 'account_login' %}">
+                    <form class="login" method="POST" action="{% url 'ldap_login' %}">
                         {% csrf_token %}
 
                         {{ form|crispy }}
