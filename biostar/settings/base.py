@@ -529,6 +529,15 @@ EMAIL_HOST_PASSWORD = get_env("EMAIL_HOST_PASSWORD", "password")
 
 DJANGO_SETTINGS_MODULE = get_env('DJANGO_SETTINGS_MODULE', 'biostar.settings.base')
 
+#LDAP SETTINGS
+CACERTDIR = "/etc/pki/amdocscom/"
+LDAP_DC = "dc=amdocsldap,dc=com"
+LDAP_SSL = False
+LDAP_INITIALIZE = "127.0.0.1:389"
+LDAP_INITIALIZE_SSL = "amdocsldap.com:636"
+LDAP_CREDENTIALS_USER = "ldapuser"
+LDAP_CREDENTIALS_PWD = "Unix11!"
+
 if __name__ == '__main__':
     """
     When run from command line report the environment

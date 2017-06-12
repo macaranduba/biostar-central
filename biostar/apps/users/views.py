@@ -16,6 +16,8 @@ from braces.views import LoginRequiredMixin
 from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 from biostar.apps import util
+from biostar.apps.ldap.forms import LoginForm
+
 import logging, hmac
 
 logger = logging.getLogger(__name__)
@@ -247,15 +249,6 @@ from allauth.account.views import SignupForm, SignupView
 from biostar.apps.util.captcha.fields import MathCaptchaField
 from captcha.fields import ReCaptchaField
 
-def ldap_login(request):
-    form = LoginForm
-    #printf("this requires KEK");
-    if request.method == 'POST':
-        print "kek"
-        pass
-    return render(request, "account/login.html", {'form': form})
-    
-
 class CaptchaForm(SignupForm):
     captcha = ReCaptchaField()
 
@@ -271,11 +264,10 @@ class CaptchaView(SignupView):
         else:
             return SignupForm
 
-class LoginForm(forms.Form):
-
-    username = forms.CharField(label=("LDAP User"))
-    password = forms.CharField(label=("Password"))
-    remember = forms.BooleanField(label=("Remember Me"),
-                                  required=False)
-
-    user = None
+def ldap_login(request):
+    form = LoginForm
+    #printf("this requires KEK");
+    if request.method == 'POST':
+        print "kek"
+        pass
+    return render(request, "account/login.html", {'form': form})
