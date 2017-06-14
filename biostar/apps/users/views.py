@@ -17,6 +17,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.conf import settings
 from biostar.apps import util
 from biostar.apps.ldap.forms import LoginForm
+from biostar.apps.ldap.models import Ldap
 
 import logging, hmac
 
@@ -266,8 +267,11 @@ class CaptchaView(SignupView):
 
 def ldap_login(request):
     form = LoginForm
-    #printf("this requires KEK");
     if request.method == 'POST':
-        print "kek"
-        pass
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            f = form.cleaned_data
+            ldap_instance = Ldap()
+            ldap_instance.authenticate(f['username'], f['password'])
+
     return render(request, "account/login.html", {'form': form})

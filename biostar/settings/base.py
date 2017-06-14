@@ -534,9 +534,9 @@ CACERTDIR = "/etc/pki/amdocscom/"
 LDAP_DC = "dc=amdocsldap,dc=com"
 LDAP_SSL = False
 LDAP_INITIALIZE = "127.0.0.1:389"
-LDAP_INITIALIZE_SSL = "amdocsldap.com:636"
-LDAP_CREDENTIALS_USER = "ldapuser"
-LDAP_CREDENTIALS_PWD = "Unix11!"
+#LDAP_INITIALIZE_SSL = "amdocsldap.com:636"
+#LDAP_CREDENTIALS_USER = "ldapuser"
+#LDAP_CREDENTIALS_PWD = "Unix11!"
 
 if __name__ == '__main__':
     """
